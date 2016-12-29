@@ -19,16 +19,16 @@ PADDLESIZE = 50
 PADDLEOFFSET = 20
 
 # Set up the colors
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
+LIGHTPINK = (252, 219, 240)
+DARKPURPLE = (98, 3, 124)
 
 # Draws the arena the game will be played in
 def drawArena():
     DISPLAYSURF.fill((0,0,0))
     # Draw outline of arena
-    pygame.draw.rect(DISPLAYSURF, WHITE, ((0,0),(WINDOWWIDTH,WINDOWHEIGHT)), LINETHICKNESS*2)
+    pygame.draw.rect(DISPLAYSURF, DARKPURPLE, ((0,0),(WINDOWWIDTH,WINDOWHEIGHT)), LINETHICKNESS*2)
     # Draw center line
-    pygame.draw.line(DISPLAYSURF, WHITE, ((WINDOWWIDTH/2),0),((WINDOWWIDTH/2),WINDOWHEIGHT), 1)
+    pygame.draw.line(DISPLAYSURF, DARKPURPLE, ((WINDOWWIDTH/2),0),((WINDOWWIDTH/2),WINDOWHEIGHT), 1)
 
 # Draw the paddle
 def drawPaddle(paddle):
@@ -39,11 +39,11 @@ def drawPaddle(paddle):
     elif paddle.top < LINETHICKNESS:
         paddle.top = LINETHICKNESS
     # Draws paddle
-    pygame.draw.rect(DISPLAYSURF, WHITE, paddle)
+    pygame.draw.rect(DISPLAYSURF, DARKPURPLE, paddle)
 
 # Draw the ball
 def drawBall(ball):
-    pygame.draw.rect(DISPLAYSURF, WHITE, ball)
+    pygame.draw.rect(DISPLAYSURF, DARKPURPLE, ball)
 
 # Moves the ball and returns new position
 def moveBall(ball, ballDirX, ballDirY):
@@ -105,7 +105,7 @@ def checkPointScored(paddle1, ball, score, ballDirX):
 
 # Displays the current score on the screen
 def displayScore(score):
-    resultSurf = BASICFONT.render('Score = %s' %(score), True, WHITE)
+    resultSurf = BASICFONT.render('Score = %s' %(score), True, DARKPURPLE)
     resultRect = resultSurf.get_rect()
     resultRect.topleft = (WINDOWWIDTH - 150, 25)
     DISPLAYSURF.blit(resultSurf, resultRect)
